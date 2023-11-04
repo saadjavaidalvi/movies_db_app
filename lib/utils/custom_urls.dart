@@ -1,3 +1,5 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 class CustomUrls {
   static String baseUrl = 'https://api.themoviedb.org/3/';
   static String upcomingMovies = '${baseUrl}movie/upcoming';
@@ -5,7 +7,6 @@ class CustomUrls {
 
   final headers = {
     "accept": "application/json",
-    "Authorization":
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZGY0YzZhN2I2YTZiZjM4MmNkNTQ3YjY4MGIyNWI3MiIsInN1YiI6IjY1NDNjZTg2NmJlYWVhMDBhYzFlYzg5ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uaHnN4jXQwEScI9BwjnyF3DCFhhdmHAayItHMcvSDdk"
+    "Authorization": dotenv.env['MoviesAuthToken'] ?? '',
   };
 }
