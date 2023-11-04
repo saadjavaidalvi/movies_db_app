@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_db_app/bloc/genere_bloc/genere_bloc.dart';
+import 'package:movies_db_app/bloc/upcoming_movies/upcoming_movies_bloc.dart';
 import 'package:movies_db_app/pages/splash_screen.dart';
 
 void main() {
@@ -10,12 +13,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => UpcomingMoviesBloc(),
+        ),
+        BlocProvider(
+          create: (context) => GenereBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          useMaterial3: true,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const SpashScreen(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: const SpashScreen(),
     );
   }
 }

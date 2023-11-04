@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 
 class CustomHttp {
-  Future get(
+  Future<http.Response> get(
     Uri url, {
     Map<String, String>? headers,
   }) async {
