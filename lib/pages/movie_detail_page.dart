@@ -228,7 +228,8 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                 padding: const EdgeInsets.only(
                   bottom: 22,
                 ),
-                child: Row(
+                child: Wrap(
+                  runSpacing: 5,
                   children: List.generate(
                     (widget.movie.genreIds ?? []).length,
                     (index) {
